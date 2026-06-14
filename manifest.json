@@ -1,23 +1,17 @@
 {
-  "manifest_version": 3,
   "name": "Cool Plane Alert",
-  "version": "1.0",
-  "description": "Notifies you when interesting aircraft are approaching your location!",
-  "permissions": [
-    "notifications",
-    "storage",
-    "alarms",
-    "tabs"
-  ],
-  "host_permissions": [
-    "https://opensky-network.org/*",
-    "https://api.emailjs.com/*"
-  ],
-  "background": {
-    "service_worker": "background.js"
-  },
-  "action": {
-    "default_popup": "popup.html",
-    "default_icon": "icon.png"
-  }
+  "short_name": "PlaneAlert",
+  "description": "Live plane tracker with alerts for cool aircraft!",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0f1923",
+  "theme_color": "#7dd4fc",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ]
 }

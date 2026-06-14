@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#7dd4fc">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="PlaneAlert">
+    <title>✈️ Cool Plane Alert</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  </head>
+  <body>
+    <header>
+      <h1>✈️ Cool Plane Alert</h1>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span id="plane-count" style="font-size:12px; color:#94a3b8;">No planes</span>
+        <div id="status-dot"></div>
+      </div>
+    </header>
+
+    <div id="map"></div>
+
+    <div id="panel">
+      <div id="panel-tabs">
+        <button class="tab-btn active" data-tab="settings">⚙️ Settings</button>
+        <button class="tab-btn" data-tab="alerts">🔔 Recent Alerts</button>
+      </div>
+
+      <div class="tab-content active" id="tab-settings">
+        <div class="setting-row">
+          <label>📍 Location</label>
+          <button id="btn-locate">Detect location</button>
+        </div>
+        <p id="location-display" style="font-size:11px; color:#4ade80; margin-bottom:10px;">No location set</p>
+
+        <div class="setting-row">
+          <label>📡 Alert radius</label>
+          <select id="radius">
+            <option value="10">10 km</option>
+            <option value="20" selected>20 km</option>
+            <option value="30">30 km</option>
+            <option value="50">50 km</option>
+          </select>
+        </div>
+
+        <label style="font-size:12px; color:#94a3b8;">🎯 Watchlist (empty = all planes)</label>
+        <div id="watchlist"></div>
+        <div style="display:flex; gap:6px; margin-top:6px;">
+          <input type="text" id="input-aircraft" placeholder="e.g. RRR, GAF" style="flex:1;">
+          <button id="btn-add">Add</button>
+        </div>
+
+        <button id="btn-toggle" style="width:100%; margin-top:12px;">Start Monitoring</button>
+      </div>
+
+      <div class="tab-content" id="tab-alerts">
+        <div id="alerts-log">
+          <p style="font-size:12px; color:#94a3b8;">No alerts yet — start monitoring to begin!</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/sw.js")
+          .then(() => console.log("Service worker registered!"))
+          .catch(err => console.error("SW registration failed:", err));
+      }
+    </script>
+  </body>
+</html>
