@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Cool Plane Alert",
+  "version": "1.0",
+  "description": "Notifies you when interesting aircraft are approaching your location!",
+  "permissions": [
+    "notifications",
+    "storage",
+    "alarms",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://opensky-network.org/*",
+    "https://api.emailjs.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cool Plane Alert</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <h1>✈️ Cool Plane Alert</h1>
+
+    <section>
+      <h2>Your Location</h2>
+      <p>Enter your latitude and longitude:</p>
+      <input type="text" id="input-lat" placeholder="Latitude e.g. 51.7023">
+      <input type="text" id="input-lon" placeholder="Longitude e.g. -0.0353">
+      <button id="btn-save-location">Save Location</button>
+      <button id="btn-find-coords" style="margin-top:6px; background-color:#0f766e;">🗺️ Find my coords</button>
+      <p id="location-display">No location set</p>
+    </section>
+
+    <section>
+      <h2>Alert Radius</h2>
+      <label for="radius">Notify me when a plane is within:</label>
+      <select id="radius">
+        <option value="10">10 km</option>
+        <option value="20" selected>20 km</option>
+        <option value="30">30 km</option>
+        <option value="50">50 km</option>
+      </select>
+    </section>
+
+    <section>
+      <h2>Aircraft Watchlist</h2>
+      <p>Only alert me for these types (leave empty for all aircraft):</p>
+      <div id="watchlist"></div>
+      <input type="text" id="input-aircraft" placeholder="e.g. RRR, GAF, VENUS">
+      <button id="btn-add-aircraft">Add</button>
+    </section>
+
+    <section>
+      <h2>Status</h2>
+      <p id="status-display">Monitoring off</p>
+      <button id="btn-toggle">Start Monitoring</button>
+    </section>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
